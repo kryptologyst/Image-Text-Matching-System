@@ -1,0 +1,41 @@
+# @package data
+
+_target_: src.data.dataset.ImageTextDataset
+
+# Dataset configuration
+dataset_name: "coco_sample"
+data_dir: "data"
+split: "train"
+
+# Data loading
+batch_size: 32
+num_workers: 4
+pin_memory: true
+persistent_workers: true
+
+# Image preprocessing
+image_size: 224
+resize_mode: "center_crop"  # center_crop, resize, random_crop
+normalize: true
+mean: [0.485, 0.456, 0.406]
+std: [0.229, 0.224, 0.225]
+
+# Text preprocessing
+text_max_length: 77
+tokenizer_name: null  # Will use model's tokenizer
+lowercase: true
+remove_punctuation: false
+
+# Augmentation
+use_augmentation: true
+augmentation_prob: 0.5
+color_jitter: true
+random_horizontal_flip: true
+random_rotation: 5.0
+
+# Data filtering
+min_image_size: 32
+max_image_size: 1024
+min_text_length: 3
+max_text_length: 512
+filter_duplicates: true

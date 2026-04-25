@@ -1,0 +1,40 @@
+# @package _global_
+
+defaults:
+  - model: clip_base
+  - data: coco_sample
+  - training: default
+  - evaluation: retrieval
+  - _self_
+
+# Project settings
+project_name: "image-text-matching"
+version: "1.0.0"
+seed: 42
+
+# Device configuration
+device: auto  # auto, cuda, mps, cpu
+mixed_precision: true
+compile_model: false  # PyTorch 2.0 compilation
+
+# Paths
+data_dir: "data"
+output_dir: "outputs"
+checkpoint_dir: "checkpoints"
+assets_dir: "assets"
+
+# Logging
+log_level: "INFO"
+log_to_file: true
+log_file: "logs/training.log"
+
+# Experiment tracking
+use_wandb: false
+wandb_project: "image-text-matching"
+wandb_entity: null
+
+# Safety and ethics
+safety_filters: true
+content_warning: true
+max_image_size: 1024
+max_text_length: 512

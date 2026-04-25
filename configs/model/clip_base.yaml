@@ -1,0 +1,28 @@
+# @package model
+
+_target_: src.models.clip_model.CLIPImageTextMatcher
+
+# Model architecture
+model_name: "openai/clip-vit-base-patch32"
+image_size: 224
+text_max_length: 77
+
+# Alternative models (uncomment to use)
+# model_name: "openai/clip-vit-large-patch14"
+# model_name: "openai/clip-vit-large-patch14-336"
+# model_name: "laion/CLIP-ViT-B-32-laion2B-s34B-b79K"
+
+# Fine-tuning options
+freeze_vision_encoder: false
+freeze_text_encoder: false
+use_adapter: false
+adapter_dim: 64
+
+# Temperature scaling
+temperature: 0.07
+learnable_temperature: false
+
+# Dropout
+dropout: 0.1
+vision_dropout: 0.1
+text_dropout: 0.1

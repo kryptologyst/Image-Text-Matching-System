@@ -1,0 +1,37 @@
+# @package evaluation
+
+_target_: src.eval.evaluator.ImageTextEvaluator
+
+# Evaluation metrics
+metrics:
+  - recall_at_1
+  - recall_at_5
+  - recall_at_10
+  - median_rank
+  - mean_rank
+  - mean_average_precision
+
+# Cross-modal evaluation
+evaluate_image_to_text: true
+evaluate_text_to_image: true
+evaluate_bidirectional: true
+
+# Evaluation settings
+batch_size: 64
+num_workers: 4
+top_k_values: [1, 5, 10, 50, 100]
+
+# Similarity computation
+similarity_metric: "cosine"  # cosine, dot_product, euclidean
+normalize_embeddings: true
+
+# Results saving
+save_predictions: true
+save_similarity_matrix: false
+save_attention_maps: false
+output_dir: "evaluation_results"
+
+# Visualization
+create_retrieval_plots: true
+create_confusion_matrix: false
+max_examples_to_visualize: 100
